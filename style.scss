@@ -1,0 +1,38 @@
+@import "~react-image-gallery/styles/scss/image-gallery.scss";
+
+$primary-color: #c1d6ff;
+$secondary-color: #009688;
+
+body {
+    background: $primary-color;
+}
+.nav-wrapper {
+    background-color: $secondary-color;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center; 
+}
+
+.navbar-collapse {
+    li{
+        a {
+            padding-right: 1em;
+            color: #949585;
+            &:hover {
+                color: rgb(39, 39, 39);
+            }
+        }
+    }
+}
+
+a {
+    color: #4f93f9;
+    text-decoration: none;
+}
+
+.img-fluid {
+    height: 100%;
+    object-fit: cover;
+}
