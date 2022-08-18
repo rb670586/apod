@@ -32,12 +32,10 @@ export default function afterLogin() {
         msgForm.reset();
     };
 
-    useEffect(() => {
         fetch('http://api.open-notify.org/astros.json').then(res => res.json())
             .then(data => {
                 setAstronauts(data['people'])
             });
-    }, [])
 
     return (
         <>
