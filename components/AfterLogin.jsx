@@ -6,7 +6,7 @@ export default function afterLogin() {
     const [user] = useUser();
     const [Loader, updateLoad] = useState(false);
     const [msgAck, setMsgAck] = useState(false);
-    const [astronauts, setAstronauts] = useState([]);
+    const [iss, setIss] = useState([]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -32,12 +32,16 @@ export default function afterLogin() {
     };
 
 
+    useEffect(() => {
+        fetch('https://api.wheretheiss.at/v1/satellites/25544').then(res => res.json())
+            .then(data => {
+                var latlong = []
+                latlong.push(data['latitude'])
+                latlong.push(data['longitude'])
+                setIss(latlong)
+            });
+    }, []);
 
-    fetch('//api.open-notify.org/astros.json').then(res => res.json())
-        .then(data => {
-            setAstronauts(data['people'])
-        });
-    
 
     return (
         <>
@@ -47,25 +51,23 @@ export default function afterLogin() {
                         <h5>Click on <strong>Browse</strong> to take a look at different Astronomy Images of the Day. Click on <strong>Favorites </strong>
                             to view images you have saved.</h5>
                     </div>
-                    <br></br>
-                    
-                    <table className="table caption-top">
-                    <caption>Wow! These people are in space right now!</caption>
+
+                    <div className="card-text">
+                        <h5 style={{ paddingTop: '3em' }}>Take a look at where the International Space Station is right now!</h5>
+                    </div>
+                    <table className="table">
                         <thead>
                             <tr>
-                                <th>Name</th>
-                                <th>Spacecraft</th>
+                                <th>Latitude</th>
+                                <th>Longitude</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {astronauts.map(item => {
-                                return (
-                                    <tr key={item.name}>
-                                        <td>{item.name}</td>
-                                        <td>{item.craft}</td>
-                                    </tr>
-                                );
-                            })}
+                            <tr>
+                                <td>{iss[0]}</td>
+                                <td>{iss[1]}</td>
+                            </tr>
+
                         </tbody>
                     </table>
                 </div>
