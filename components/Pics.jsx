@@ -65,9 +65,9 @@ export default function Pics() {
 
     return (
         <>
-            <div class="search-container" style={{ marginBottom: '.60em' }}>
-                <div class="row height d-flex justify-content-center align-items-center">
-                    <div class="col-md-6">
+            <div className="search-container" style={{ marginBottom: '.60em' }}>
+                <div className="row height d-flex justify-content-center align-items-center">
+                    <div className="col-md-6">
                         <div className="search" style={{ display: 'flex' }}>
                             <input type="date" 
                                 max = {new Date().toLocaleString("en-CA", {timeZone: "America/New_York"}).slice(0, 10)} 
