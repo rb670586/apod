@@ -10,7 +10,7 @@ export default function UserPage({ user }) {
 
     if (!user) return <Error statusCode={404} />;
     const {
-        name, email, bio, profilePicture,
+        name, email, bio
     } = user || {};
     const [currentUser] = useCurrentUser();
     const isCurrentUser = currentUser?._id === user._id;
