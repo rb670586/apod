@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useUser } from '../lib/hooks';
-import { IoMdSend } from 'react-icons/io'
 
 export default function afterLogin() {
     const [errorMsg, setErrorMsg] = useState("");
@@ -32,10 +31,13 @@ export default function afterLogin() {
         msgForm.reset();
     };
 
-        fetch('http://api.open-notify.org/astros.json').then(res => res.json())
-            .then(data => {
-                setAstronauts(data['people'])
-            });
+
+
+    fetch('//api.open-notify.org/astros.json').then(res => res.json())
+        .then(data => {
+            setAstronauts(data['people'])
+        });
+    
 
     return (
         <>
@@ -67,27 +69,6 @@ export default function afterLogin() {
                         </tbody>
                     </table>
                 </div>
-                {/* <div className="col-sm-12 my-3">
-                    <div className="card">
-                        <div className="card-body">
-                            <div className="card-form">
-                                <div className='err-msg text-danger'> {errorMsg && <p>{errorMsg}</p>}</div>
-                                {msgAck && <div class="alert alert-success" role="alert">
-                                    Message Sent
-                                </div>}
-                                <form onSubmit={handleSubmit} id="msgForm">
-                                    <div class="form-floating mb-3">
-                                        <textarea class="form-control" placeholder="Leave a comment here" id="message" name="message"></textarea>
-                                        <label for="floatingTextarea">Send Message</label>
-                                    </div>
-                                    <button type='submit' className='btn btn-primary'>{Loader ? <div class="spinner-border" role="status" style={{ width: '1.5rem', height: '1.5rem' }}>
-                                        <span class="visually-hidden">Loading...</span>
-                                    </div> : <>Send <IoMdSend /></>}</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div> */}
             </div>
         </>)
 }
