@@ -8,7 +8,7 @@ export default function Favorites() {
     const [photoDate, setPhotoDate] = useState(new Date().toLocaleString("en-CA", {timeZone: "America/New_York"}).slice(0, 10));
     const [errorMsg, setErrorMsg] = useState("");
     const [loading, isLoading] = useState(false);
-    const [favorites, setFavorites] = useState(["http://via.placeholder.com/400x400/"])
+    const [favorites, setFavorites] = useState(["https://via.placeholder.com/600"])
     const [query, setQuery] = useState(photoDate);
 
 
