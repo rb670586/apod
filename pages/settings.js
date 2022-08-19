@@ -1,4 +1,4 @@
-import Setting from '../components/Settings';
+import Settings from '../components/Settings';
 
 export default function login() {
     return (
@@ -10,7 +10,7 @@ export default function login() {
                 <div class="col-md-7">
                     <div class="card-body">
                         <h3 class="card-title text-center">Edit Profile</h3>
-                        <Setting />
+                        <Settings />
                     </div>
                 </div>
             </div>
